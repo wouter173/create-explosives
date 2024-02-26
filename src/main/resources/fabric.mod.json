@@ -1,30 +1,45 @@
 {
-  "schemaVersion": 1,
-  "id": "modid",
-  "version": "${version}",
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
-  "authors": [
-    "Me!"
-  ],
-  "contact": {
-    "sources": "https://github.com/Fabricators-of-Create/create-fabric-addon-template"
-  },
-  "license": "CC0",
-  "icon": "assets/modid/icon.png",
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "com.example.modid.ExampleMod"
-    ]
-  },
-  "mixins": [
-    "modid.mixins.json"
-  ],
-  "depends": {
-    "fabricloader": ">=${fabric_loader_version}",
-    "fabric-api": ">=${fabric_api_version}",
-    "create": "${create_version}",
-    "minecraft": "${minecraft_version}"
-  }
+	"schemaVersion": 1,
+	"id": "create-explosives",
+	"version": "${version}",
+	"name": "Create Explosives",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/create-explosives/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+      "cloud.wouter.explosives.Createexplosives"
+		],
+		"client": [
+      "cloud.wouter.explosives.CreateexplosivesClient"
+		],
+		"fabric-datagen": [
+      "cloud.wouter.explosives.CreateexplosivesDataGenerator"
+		]
+	},
+	"mixins": [
+    "create-explosives.mixins.json",
+    {
+      "config": "create-explosives.client.mixins.json",
+      "environment": "client"
+    }
+	],
+	"depends": {
+		"fabricloader": ">=0.15.7",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+    "create": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
 }
